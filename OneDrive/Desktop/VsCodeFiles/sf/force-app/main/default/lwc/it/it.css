@@ -1,0 +1,94 @@
+/* Container with grid for side-by-side layout */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards side by side */
+    grid-gap: 20px; /* Spacing between cards */
+    justify-items: center;
+    align-items: start;
+    padding: 20px;
+    position: relative;
+}
+
+/* Center the text at the top */
+.center-text {
+    grid-column: 1 / span 4; /* Spans all 4 columns */
+    text-align: center;
+    margin-bottom: 20px; /* Space between the heading and cards */
+}
+
+.center-text h1 {
+    font-size: 2rem;
+    color: #090e39;
+}
+
+/* Card styles */
+.card {
+    width: 90%;
+    max-width: 250px; /* Increase width for desktop */
+    padding: 15px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.card-image {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.card:hover {
+    background-color: #e0f7fa;
+    transform: scale(1.05);
+}
+
+/* Mobile layout: stack cards vertically and center text */
+@media only screen and (max-width: 600px) {
+    .card-container {
+        grid-template-columns: 1fr; /* Single column for mobile */
+        grid-gap: 20px; /* Spacing between stacked cards */
+        padding: 20px; /* Add padding for mobile */
+    }
+
+    /* Ensure center text is properly centered and sized for mobile */
+    .center-text {
+        grid-column: 1; /* Spans the single column */
+    }
+
+    .center-text h1 {
+        font-size: 1.5rem; /* Reduce font size for mobile */
+    }
+
+    /* Adjust card styles for smaller screens */
+    .card {
+        max-width: 100%; /* Full width on mobile */
+        margin: 0 auto; /* Center the cards */
+        padding: 15px;
+    }
+
+    .card h2 {
+        font-size: 1.1rem;
+    }
+
+    .card p {
+        font-size: 0.8rem;
+    }
+
+    /* Disable hover effect on mobile */
+    .card:hover {
+        transform: none;
+    }
+}

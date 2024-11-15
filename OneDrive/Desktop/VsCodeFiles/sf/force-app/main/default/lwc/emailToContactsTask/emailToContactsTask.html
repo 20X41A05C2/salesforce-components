@@ -1,0 +1,60 @@
+<template>
+    <!-- Screen 1: Email Template Selection -->
+    <template if:true={isScreen1}>
+        <lightning-card title="Select Email Template" icon-name="custom:custom63">
+            <template if:true={emailTemplates.length}>
+                <lightning-radio-group
+                    name="emailTemplates"
+                    label="Email Templates"
+                    options={emailTemplates}
+                    onchange={handleTemplateChange}
+                    value={selectedTemplateId} 
+                >
+                </lightning-radio-group>
+            </template>
+            <template if:true={error}>
+                <p class="slds-text-color_error">Error loading templates: {error}</p>
+            </template>
+            <!-- Next button to move to Screen 2 -->
+            <lightning-button label="Next" variant="brand" onclick={showScreen2} disabled={isNextButtonDisabled}></lightning-button>
+        </lightning-card>
+    </template>
+    
+
+    <!-- Screen 2: Contacts Data Table -->
+    <template if:true={isScreen2}>
+        <lightning-card title="Contacts Data Table" icon-name="standard:contact">
+            <lightning-datatable
+                key-field="Id"
+                data={contacts}
+                columns={columns}
+                onrowselection={getSelectedContacts}
+                checkbox-column="true"
+            >
+            </lightning-datatable>
+        </lightning-card>
+        <template if:true={selectedContacts.length}>
+            <p>Selected Contacts: {selectedContacts.length}</p>
+        </template>
+        <lightning-button label="Previous" variant="brand" onclick={showScreen1}></lightning-button>
+        <lightning-button label="Next" variant="brand" onclick={goToEmailScreen}></lightning-button>
+    </template>
+
+
+        <!-- Screen 3: Email Sending -->
+        <template if:true={isScreen3}>
+            <lightning-card title="Send Email" icon-name="utility:email">
+                <template if:true={selectedContacts.length}>
+                    <p><strong>Selected Contacts:</strong></p>
+                    <ul>
+                        <template for:each={selectedContacts} for:item="contact">
+                            <li key={contact.Id}>{contact.Name} ({contact.Email})</li>
+                        </template>
+                    </ul>
+                    <lightning-textarea label="Email Preview" value={emailPreview} readonly></lightning-textarea>
+                    <lightning-button label="Send Email" variant="brand" onclick={sendEmail}></lightning-button>
+                </template>
+            </lightning-card>
+        </template>
+     
+</template>

@@ -1,0 +1,41 @@
+<template>
+    <template if:true={showHospitalTable}>
+        <lightning-card title="Hospital Data" icon-name="standard:facility_bed">
+            <lightning-datatable  
+                        key-field="id"
+                       data={hospitalData}
+                        columns={hospitalColumns}
+                        hide-checkbox-column
+                onrowaction={handleHospitalRowAction}>
+            ></lightning-datatable>
+        </lightning-card>
+     </template>
+   
+
+    <template if:true={showDoctorTable}>
+        <lightning-card title="Doctor Details " icon-name="standard:contact">
+            <h1><b>{selectedHospitalName}</b></h1>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input type="date" label="Start Date" value={startDate} onchange={handleStartDateChange}></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input type="date" label="End Date" value={endDate} onchange={handleEndDateChange}></lightning-input>
+                </div>
+            </div>
+
+            <lightning-button label="Download CSV" onclick={downloadCsv} class="slds-m-top_medium"></lightning-button>
+            
+            <!-- Data Table for Doctors -->
+            <lightning-datatable
+                key-field="Id"
+                data={doctorData}
+                columns={doctorColumns}
+                hide-checkbox-column>
+            </lightning-datatable>
+            <div slot="footer">
+                <lightning-button label="Back" title="Back" onclick={handleBack} class="slds-m-left_x-small"></lightning-button>
+            </div>
+        </lightning-card>
+    </template>
+</template>

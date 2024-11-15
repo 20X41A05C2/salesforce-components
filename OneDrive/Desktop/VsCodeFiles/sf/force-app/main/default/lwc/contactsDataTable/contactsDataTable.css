@@ -1,0 +1,21 @@
+/* Optional: Customize table borders */
+.custom-table .slds-table {
+    border: 6px solid #061533; 
+    border-radius: 4px;
+}
+.custom-header-cell {
+    background-color: #2196F3; /* Blue background */
+    color: #ffffff; /* White text */
+    padding: 0.75rem; /* Padding for header cells */
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Optional: Customize the table header */
+/* Customize the table header */
+.slds-table thead th {
+    background-color: #071831; /* Blue color for the header */
+    color: #ffffff; /* White text color for contrast */
+    font-weight: bold;
+    border-bottom: 2px solid #213f78; /* Green border at the bottom, similar to the image style */
+}

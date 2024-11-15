@@ -1,0 +1,28 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="standard:account" ></lightning-icon>
+            Caluculator
+        </h3>
+        <p class="slds-p-small_horizontal">
+            <lightning-input label="Enter first Number" name="fnumber" value={firstNumber}
+                                     onchange={handleChanges}></lightning-input>
+            <lightning-input label="Enter Second Number" name="snumber" value={secondNumber}
+                                     onchange={handleChanges}></lightning-input>
+        </p>
+
+        <p class="slds-p-small_horizontal">
+            <b>AdditionResult:: {addResult}</b><br/>
+            <b>SSubractionResult:: {subResult}</b>
+        </p>
+
+        <div slot="footer">
+            <lightning-button variant="brand" label="Add" title="Addition" 
+            onclick={handleAddClick} class="=slds-m-left_x-small" ></lightning-button>
+            &nbsp;
+            <lightning-button variant="brand" label="Sub" title="Subraction" 
+            onclick={handleSubClick} class="=slds-m-left_x-small"></lightning-button>
+        </div>
+
+    </lightning-card>
+</template>

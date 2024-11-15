@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Contacts List">
+        <!-- Wrapper with custom header styling -->
+        <div class="custom-header">
+            <table class="slds-table">
+                <thead>
+                    <tr>
+                        <th class="custom-header-cell">Account Name</th>
+                        <th class="custom-header-cell">Contact Name</th>
+                        <th class="custom-header-cell">Email</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <template if:true={contacts}>
+            <lightning-datatable
+                key-field="Id"
+                data={contacts}
+                columns={columns}
+                onrowselection={handleRowSelection}
+                checkbox-column="true"
+                selected-rows={selectedRows}
+                class="custom-table">
+            </lightning-datatable>
+        </template>
+        <template if:true={error}>
+            <p>Error: {error}</p>
+        </template>
+    </lightning-card>
+</template>

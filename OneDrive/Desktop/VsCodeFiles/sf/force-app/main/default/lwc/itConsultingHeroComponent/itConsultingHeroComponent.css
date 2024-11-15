@@ -1,0 +1,102 @@
+/* Start with cards off-screen */
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: 10px;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(100px); /* Initially below the viewport */
+    transition: opacity 0.5s ease, transform 0.8s ease; /* Smooth transition */
+}
+
+/* Sliding in effect */
+.slide-in {
+    opacity: 1; /* Make visible */
+    transform: translateY(0); /* Slide into place */
+}
+
+.card {
+    width: 90%;
+    height: auto;
+    max-width: 200px;
+    padding: 10px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-size: 1.1rem;
+    margin: 5px 0;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.card-image {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.card:hover {
+    background-color: #e0f7fa;
+    transform: scale(1.05);
+}
+
+/* Positioning the cards in a "+" shape */
+.center-text {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: center;
+}
+
+.center-text h1 {
+    font-size: 2rem;
+    color: #090e39;
+}
+
+.top-card {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.left-card {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.right-card {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.bottom-card {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+@media only screen and (max-width: 600px) {
+    .card-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+    }
+
+    .center-text, .top-card, .left-card, .right-card, .bottom-card {
+        grid-column: 1;
+    }
+
+    .center-text h1 {
+        font-size: 1.5rem;
+    }
+}

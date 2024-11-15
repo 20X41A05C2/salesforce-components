@@ -1,0 +1,99 @@
+<template>
+    <lightning-card title="Multiple Screens Task">
+
+        <template if:true={firstScreen}>
+            <div class="slds-card__header">
+                <h2 class="slds-text-heading_medium slds-p-vertical_medium">Record Type Selection</h2>
+            </div>
+
+            <div class="slds-card-body">
+                <lightning-combobox name="recordType" label="Record Type" value={selectedRecordType}
+                    options={recordTypeOptions} onchange={handleRecordTypeChange}
+                    placeholder="Select Prescriber Institution Type" required ></lightning-combobox>
+            </div>
+
+            <div class="slds-card__footer">
+                <lightning-button variant="brand" label="Next" onclick={handleFirstScreenNext}></lightning-button>
+            </div>
+        </template>
+
+        <template if:true={secondScreen}>
+            <div class="slds-card__header">
+                <h2 class="slds-text-heading_medium slds-p-vertical_medium">Prescriber Institution Record Creation</h2>
+            </div>
+
+
+            <div class="slds-card-body">
+                <lightning-input type="text" label="Institution Name" value={institutionName}
+                    onchange={handlePiNameChange} required ></lightning-input>
+                <lightning-input type="phone" label="Phone" value={institutionPhone}
+                    onchange={handlePiPhoneChange}></lightning-input>
+                <lightning-input type="email" label="Email" value={institutionEmail}
+                    onchange={handlePiEmailChange}></lightning-input>
+                <lightning-input type="text" label="Country" value={institutionCountry}
+                    onchange={handlePiInstitutionCountryChange}></lightning-input>
+                
+            </div><br/>
+
+            <div class="slds-card-footer">
+                <lightning-button variant="brand" label="Previous"
+                    onclick={handleSecondScreenPrevious}></lightning-button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <lightning-button variant="brand" label="Next" onclick={handleSecondScreenNext}></lightning-button>
+            </div>
+
+        </template>
+
+        <template if:true={thirdScreen}>
+            <div class="slds-card__header">
+                <h2 class="slds-text-heading_medium slds-p-vertical_medium">Prescriber Record Creation</h2>
+            </div>
+
+            <div class="slds-card-body">
+                <lightning-input type="text" label="Name" value={prescriberName} 
+                    onchange={handlePrescriberNameChange} required></lightning-input>
+
+                 <lightning-comboBox name="Gender" label="Gender" value={prescriberGender}
+                    options={genderoptions} onchange={handlePrescriberGenderChange}
+                    placeholder="Select Gender"></lightning-comboBox>
+
+                <lightning-comboBox name="MedicalSpeciality" label="MedicalSpeciality" value={prescriberMedicalSpeciality} options={medicalSpecialityOptions}
+                    onchange={handlePrescriberMedicalSpecialityChange} placeholder="Select MedicalSpeciality"></lightning-comboBox>
+
+                <lightning-comboBox name="Availability" label="Availability" value={prescriberAvailability}
+                    options={availabilityOptions} onchange={handlePrescriberAvailabilityChange}
+                    placeholder="Select Availability"></lightning-comboBox>
+
+                <lightning-input type="text" label="Email" value={prescriberMail}
+                    onchange={handlePrescriberEmailChange}></lightning-input>
+
+                <lightning-input type="text" label="Salary" value={salary}
+                    onchange={handlePrescriberSalaryChange}></lightning-input>
+
+                <lightning-input type="text" label="Experience" value={experience}
+                    onchange={handlePrescriberExperienceChange} required></lightning-input> 
+                
+            </div>
+
+            <div class="slds-card__footer">
+                <lightning-button variant="brand" label="Previous"
+                    onclick={handleThirdScreenPrevious}></lightning-button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <lightning-button variant="brand" label="Finish" onclick={handleFinish}></lightning-button>
+            </div>
+        </template>
+
+        <template if:true={fourthScreen}>
+            <div class="slds-card__header">
+                <h2 class="slds-text-heading_medium slds-p-vertical_medium">All done!</h2>
+            </div>
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-2">
+                    <img src={success_img} alt="Records Created Successfully ">
+                </div>
+            </div>
+            
+        </template>
+
+    </lightning-card>
+</template>

@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Create Account using Apex class in lwc">
+        <lightning-input label="Account Name" value={accountRecord.Name} type="text"  
+                            onchange={handleNameChange}></lightning-input>
+        <lightning-comboBox label="Account Type" value={accountRecord.Type} options={accountTypes} 
+                            onchange={handleTypeChange}></lightning-comboBox>
+        <lightning-input label="Account Phone" value={accountRecord.Phone} type="phone"  
+                            onchange={handlePhoneChange}></lightning-input>
+
+
+          <div slot="footer">
+             <lightning-button variant="brand" label="Create" onclick={handleCreateAccount} ></lightning-button>
+             
+          </div>
+                              
+    </lightning-card>
+</template>

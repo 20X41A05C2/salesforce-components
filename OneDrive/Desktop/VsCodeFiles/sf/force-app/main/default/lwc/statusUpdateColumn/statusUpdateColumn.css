@@ -1,0 +1,12 @@
+.custom-status-header {
+    display: flex;
+    align-items: center;
+}
+
+.custom-status-header span {
+    margin-right: 0.5rem;
+}
+
+.custom-status-header lightning-button-icon {
+    margin-left: 0.5rem;
+}

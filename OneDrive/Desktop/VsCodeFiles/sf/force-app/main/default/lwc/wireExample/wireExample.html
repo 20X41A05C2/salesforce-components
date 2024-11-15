@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="WireExample" icon-name="custom:custom14">
+        <!-- <ul class="slds-m-around-medium">
+            <template for:each={accountsData} for:item="account">
+                <li key={account.Id}> {account.Name} - {account.Phone} </li>
+            </template>
+        </ul> -->
+
+        <lightning-datatable  data={accountsData} columns={columns} key-field="id"></lightning-datatable>
+
+    </lightning-card>
+</template>

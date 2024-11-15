@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Update contact with js">
+        <lightning-input label="Contact Name" value={contact_FirstName} onchange={handleContactFirstName}></lightning-input>
+        <lightning-input label="Contact Phone" value={contact_Phone} onchange={handleContactPhone}></lightning-input>
+
+
+        <div class="slds-grid slds-align_absolute-center slds-m-top_small">
+            <lightning-button label="Update Contact" onclick={updateContact}>
+            </lightning-button>
+
+        </div>
+    </lightning-card>
+</template>
