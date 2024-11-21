@@ -5,11 +5,13 @@ import Type from '@salesforce/schema/Account.Type';
 import createAccount from '@salesforce/apex/multiStepFormWithNavigation.createAccount';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import createContact from '@salesforce/apex/multiStepFormWithNavigation.createContact';
+import Thankyouimage from '@salesforce/resourceUrl/ThankYouImage';
 
 export default class MultiStepFormWithNavigation extends LightningElement {
     @track firstScreen = true;
     @track secondScreen = false;
     @track thirdScreen = false;
+    @track fourthscreen=false;
 
     @track accountName = '';
     @track accountPhone = '';
@@ -23,6 +25,7 @@ export default class MultiStepFormWithNavigation extends LightningElement {
     @track lastName = '';
     @track contactPhone = '';
     @track contactEmail = '';
+    thankyou=Thankyouimage;
 
     // Handle Account Inputs
     handleAccountNameChange(event) {
@@ -113,6 +116,10 @@ export default class MultiStepFormWithNavigation extends LightningElement {
         if (!this.isInputValid()) {
             return;
         }
+        this.firstScreen = false;
+        this.secondScreen = false;
+        this.thirdScreen = false;
+        this.fourthscreen=true;
     
         // Create the Account first
         createAccount({
@@ -133,8 +140,17 @@ export default class MultiStepFormWithNavigation extends LightningElement {
                 createdAccountId: this.createdAccountId // Pass the created Account Id
             });
         }).then(() => {
+            // this.resetForm();
+
+                // setTimeout(() => {
+                //     this.fourthscreen = false;
+                //     this.firstScreen = true;
+                // }, 5000);
+                
             this.showToast('Success', 'Contact Created Successfully', 'success');
-            this.resetForm();
+           
+
+        
         }).catch(error => {
             this.showToast('Error', 'Error in creating Account or Contact', 'error');
         });
@@ -152,9 +168,9 @@ export default class MultiStepFormWithNavigation extends LightningElement {
         this.contactPhone = '';
         this.contactEmail = '';
 
-        this.firstScreen = true;
-        this.secondScreen = false;
-        this.thirdScreen = false;
+        // this.firstScreen = true;
+        // this.secondScreen = false;
+        // this.thirdScreen = false;
     }
 
     // Picklist for Rating
