@@ -1,0 +1,58 @@
+{
+  "0AfC4000006R1W2KAK": {
+    "dry-run": false,
+    "ignore-conflicts": false,
+    "ignore-errors": false,
+    "ignore-warnings": false,
+    "target-org": "test-of5ida52zvbg@example.com",
+    "verbose": true,
+    "api": "SOAP",
+    "manifest": "C:\\Users\\tejas\\.sf\\manifestCache\\0AfC4000006R1W2KAK.xml",
+    "wait": 10,
+    "isMdapi": false,
+    "timestamp": "2024-10-25T09:32:44.979Z",
+    "status": "Failed"
+  },
+  "0AfdL00000AQ3kWSAT": {
+    "dry-run": false,
+    "ignore-conflicts": false,
+    "ignore-errors": false,
+    "ignore-warnings": false,
+    "target-org": "tejaswaroop373@gmail.com",
+    "verbose": true,
+    "api": "SOAP",
+    "manifest": "C:\\Users\\tejas\\.sf\\manifestCache\\0AfdL00000AQ3kWSAT.xml",
+    "wait": 10,
+    "isMdapi": false,
+    "timestamp": "2024-10-25T09:35:16.988Z",
+    "status": "Failed"
+  },
+  "0AfdL00000AQ5chSAD": {
+    "dry-run": false,
+    "ignore-conflicts": false,
+    "ignore-errors": false,
+    "ignore-warnings": false,
+    "target-org": "tejaswaroop373@gmail.com",
+    "verbose": true,
+    "api": "SOAP",
+    "manifest": "C:\\Users\\tejas\\.sf\\manifestCache\\0AfdL00000AQ5chSAD.xml",
+    "wait": 10,
+    "isMdapi": false,
+    "timestamp": "2024-10-25T09:36:36.869Z",
+    "status": "Failed"
+  },
+  "0AfdL00000AQG4zSAH": {
+    "dry-run": false,
+    "ignore-conflicts": false,
+    "ignore-errors": false,
+    "ignore-warnings": false,
+    "target-org": "tejaswaroop373@gmail.com",
+    "verbose": true,
+    "api": "SOAP",
+    "manifest": "C:\\Users\\tejas\\.sf\\manifestCache\\0AfdL00000AQG4zSAH.xml",
+    "wait": 10,
+    "isMdapi": false,
+    "timestamp": "2024-10-25T09:42:33.477Z",
+    "status": "Failed"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "accessToken": "0c36b2f1cf47df9855485006434ed8f23ca92ce8e44bdcdcf5752746364c89e3c2952c9c25251320f26a0196c399f9c4d1594dc8ce2eccd3f8d60668212494222e2cf127119472b8b2c597666a6d470601f7a375472119a229363d158d466fa07b2969d10adadcd1c00ae12fd5454b3e20e1c5970ddf:a8114c9ac2b59570addf551a637184ec",
+  "instanceUrl": "https://sprintpark4-dev-ed.develop.my.salesforce.com",
+  "orgId": "00DdL000006LubgUAC",
+  "username": "tejaswaroop373@gmail.com",
+  "loginUrl": "https://login.salesforce.com",
+  "refreshToken": "3dee94e20a0d3b46101b68aab5c64027ee91bd4b4413a0da457761372a6a2e0b29a19ea143c1ef987b79ed38867ff6d197fc0d256e3b9c13b30f0d1022075284433c9717a5b0db7308aa610dc3e0c1c31d419d18753efcb9d9559eed98:58527b38761c08395ad09e17ade5bb1c",
+  "clientId": "PlatformCLI",
+  "isDevHub": true,
+  "instanceApiVersion": "62.0",
+  "instanceApiVersionLastRetrieved": "11/18/2024, 11:37:26 AM",
+  "name": "SprintPark",
+  "instanceName": "IND134",
+  "namespacePrefix": null,
+  "isSandbox": false,
+  "isScratch": false,
+  "trailExpirationDate": null,
+  "tracksSource": false
+}

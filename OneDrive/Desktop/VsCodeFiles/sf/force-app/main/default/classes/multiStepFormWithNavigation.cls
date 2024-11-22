@@ -1,29 +1,23 @@
 public with sharing class multiStepFormWithNavigation {
-    public multiStepFormWithNavigation() {
-
-    }
     @AuraEnabled
-    public static Id createAccount(string Name,string phone,string Rating , string Type ){
-        Account acc = new Account();
-        acc.Name = Name;
-        acc.Phone = phone;
-        acc.Rating = Rating;
-        acc.Type = Type;
-
+    public static Id createAccount(String Name, String phone, String Rating, String Type) {
+        Account acc = new Account(Name = Name, Phone = phone, Rating = Rating, Type = Type);
         insert acc;
         return acc.Id;
     }
 
+    // @AuraEnabled
+    // public static void createContacts(List<Contact> contactList) {
+    //     if (!contactList.isEmpty()) {
+    //         insert contactList;
+    //     }
+    // }
+
     @AuraEnabled
-    public static Id createContact(string FirstName, string LastName , string  Phone, string Email,Id createdAccountId){
-        Contact con = new Contact();
-        con.FirstName = FirstName;
-        con.LastName = LastName;
-        con.Phone = Phone;
-        con.Email = Email;
-        con.AccountId = createdAccountId;
-        
-        insert con;
-        return con.Id;
+    public static void createContacts(List<Contact> contacts, Id createdAccountId) {
+        for (Contact c : contacts) {
+            c.AccountId = createdAccountId;
+        }
+        insert contacts;
     }
 }

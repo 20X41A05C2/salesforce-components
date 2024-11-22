@@ -1,0 +1,19 @@
+{
+  "accessToken": "cd957023ec9365e3432d805a30686a0e2b0a9781f4c5ede31d7b5be3bd4601cd85347edb532e330fd5e3e848c95fc1ca245192a763d9f5e2cfa161c2b9e151b133166b72c6f5057afee5fd2cb53e22ba01fed22769b59e3c31ff285caa164494caad9b02bf6e9de0eb7af2671e7701d7999ab61fe2c1:e297b30a973ed4e9dd91ece9e3595968",
+  "instanceUrl": "https://agility-page-9795-dev-ed.scratch.my.salesforce.com",
+  "orgId": "00DC4000001JKX7MAO",
+  "username": "test-of5ida52zvbg@example.com",
+  "loginUrl": "https://agility-page-9795-dev-ed.scratch.my.salesforce.com",
+  "refreshToken": "4245cdabb48f0c32fdc1e5f91a74858d47ad42b2ff7ad704463c8c97a6e2a22adb77af3f0bf65fa701712c0b198766458fa07e37dbd9ce3e197c8c7bd6d33b4bba7913cd8cff1892b4fcdebf87b494d6ce6fbdd41894882dd229c9f068:6016ede2b43b0720c46cad6ca41eeff4",
+  "clientId": "PlatformCLI",
+  "isDevHub": false,
+  "devHubUsername": "tejaswaroop373@gmail.com",
+  "created": "1729848674000",
+  "expirationDate": "2024-11-01",
+  "createdOrgInstance": "IND22S",
+  "isScratch": true,
+  "isSandbox": false,
+  "tracksSource": true,
+  "instanceApiVersion": "62.0",
+  "instanceApiVersionLastRetrieved": "10/25/2024, 3:01:31 PM"
+}

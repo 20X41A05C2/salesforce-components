@@ -1,0 +1,19 @@
+{
+  "accessToken": "64cbb1a1a92f05ccca48dc7898cb9544b13c29cfbc8d3e752aad6efc4a0da137c95aed3678b7c29e18757bdd6f4465884b54f27e3ca9e11a4a6ad6c720a636b1c0f0dcafb7bfd1ffcaab33107e95e986989388aea7145ab2ef95160aee2bcc209b1d6308550213dfbfa3b3b525869b14155f91290903:3ca6c48541fca9459a4014d718a692fb",
+  "instanceUrl": "https://sprintparksolutionspvtltd2-dev-ed.develop.my.salesforce.com",
+  "orgId": "00DNS000006GwcT2AS",
+  "username": "bhavanae@developer.com",
+  "loginUrl": "https://login.salesforce.com/",
+  "refreshToken": "0c4b8254178d9d266f5b0401582a4a9250e397cdeea65e8a053722bb56954bf55c4474a789f36a617a11eb54cfcf4cf57c15ba3b188e47b6266f502d071057ae670dc3ece5476b3e00aac85743038041674e80ae9a9018c9c8fa7204a1:4f8984330c7a402875a99b109c2e8ed2",
+  "clientId": "PlatformCLI",
+  "isDevHub": false,
+  "instanceApiVersion": "62.0",
+  "instanceApiVersionLastRetrieved": "11/20/2024, 11:43:16 AM",
+  "name": "SprintPark Solutions Pvt Ltd",
+  "instanceName": "IND56",
+  "namespacePrefix": null,
+  "isSandbox": false,
+  "isScratch": false,
+  "trailExpirationDate": null,
+  "tracksSource": false
+}

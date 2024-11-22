@@ -1,0 +1,11 @@
+{
+  "name": "mocklgpt",
+  "version": "1.0.0",
+  "description": "Mocked Module to represent expected LGPT functionality",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc"
+  },
+  "author": "salesforce.com",
+  "license": "ISC"
+}

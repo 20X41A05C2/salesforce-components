@@ -8,10 +8,10 @@
     max-width: 700px; 
     min-width: 300px; 
     height: auto;
-    max-height: 800px;
+    
     
     padding: 2rem;
-    max-height: 1000px;
+    max-height: auto;
     padding-inline: 20px;
     border-color:#7a8391;
    
@@ -51,6 +51,76 @@
     max-width: 600px; /* Ensures a maximum width for the boxes */
     margin: 0 auto; /* Centers the boxes inside the container */
 }
+
+.slds-text-heading_small {
+    -webkit-text-fill-color: #4da8d2;
+    font-weight: bold;
+}
+
+.slds-grid.slds-wrap.slds-gutters {
+    margin-bottom: 1rem; /* Space between sections */
+}
+
+.slds-col {
+    margin-bottom: 0.5rem; /* Space between items within columns */
+}
+
+.slds-card__header h2 {
+    text-align: center;
+    color: #6f737a; /* Matching color of header */
+    font-weight: bold;
+}
+
+.slds-card__footer {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.slds-card {
+    width: 60%; /* Adjust as necessary to center the card and reduce width */
+    margin: auto;
+}
+
+.slds-box p {
+    margin: 0.5rem 0; /* Adds spacing between lines */
+}
+
+.slds-card__header h2 {
+    text-align: center;
+}
+
+.slds-box h3 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.slds-card__footer {
+    margin-top: 1rem;
+}
+
+.slds-text-heading_medium {
+    -webkit-text-fill-color: #6f737a;
+    font-weight: bold;
+}
+
+/* .slds-card-body {
+    background-color: #f0f0f0;
+} */
+.contact-container{
+    /* background-color: #a5a5a5; */
+    padding: 2rem;
+}
+/* .con-box{
+    background-color: #f0f0f0;
+} */
+.slds-grid{
+    background-color:#f0f0f0 ;
+}
+.slds-m-top_medium{
+    padding-left: 1rem;
+}
+
+
 .thank-you-image {
     width: 50%;
     height:50%;

@@ -4,14 +4,14 @@ import Rating from '@salesforce/schema/Account.Rating';
 import Type from '@salesforce/schema/Account.Type';
 import createAccount from '@salesforce/apex/multiStepFormWithNavigation.createAccount';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import createContact from '@salesforce/apex/multiStepFormWithNavigation.createContact';
+import createContacts from '@salesforce/apex/multiStepFormWithNavigation.createContacts';
 import Thankyouimage from '@salesforce/resourceUrl/ThankYouImage';
 
 export default class MultiStepFormWithNavigation extends LightningElement {
     @track firstScreen = true;
     @track secondScreen = false;
     @track thirdScreen = false;
-    @track fourthscreen=false;
+    @track fourthscreen = false;
 
     @track accountName = '';
     @track accountPhone = '';
@@ -21,11 +21,16 @@ export default class MultiStepFormWithNavigation extends LightningElement {
     @track typeOptions = [];
     @track createdAccountId;
 
-    @track firstName = '';
-    @track lastName = '';
+    @track FirstName = '';
+    @track LastName = '';
     @track contactPhone = '';
     @track contactEmail = '';
-    thankyou=Thankyouimage;
+    thankyou = Thankyouimage;
+
+    // Contact list, starting with one default contact
+    @track contactList = [
+        { id: 1, FirstName: '', LastName: '', Phone: '', Email: '' }
+    ];
 
     // Handle Account Inputs
     handleAccountNameChange(event) {
@@ -46,19 +51,50 @@ export default class MultiStepFormWithNavigation extends LightningElement {
 
     // Handle Contact Inputs
     handleContactFirstNameChange(event) {
-        this.firstName = event.target.value;
+        const id = event.target.dataset.id;
+        this.updateContactField(id, 'FirstName', event.target.value);
     }
 
     handleContactLastNameChange(event) {
-        this.lastName = event.target.value;
+        const id = event.target.dataset.id;
+        this.updateContactField(id, 'LastName', event.target.value);
     }
 
     handleContactPhoneChange(event) {
-        this.contactPhone = event.target.value;
+        const id = event.target.dataset.id;
+        this.updateContactField(id, 'Phone', event.target.value);
     }
 
     handleContactEmailChange(event) {
-        this.contactEmail = event.target.value;
+        const id = event.target.dataset.id;
+        this.updateContactField(id, 'Email', event.target.value);
+    }
+
+    // Update the specific contact field
+    updateContactField(id, field, value) {
+        this.contactList = this.contactList.map(contact => 
+            contact.id === parseInt(id) 
+                ? { ...contact, [field]: value }
+                : contact
+        );
+    }
+
+    // Add a new contact to the list
+    handleAddContact() {
+        const newContact = {
+            id: this.contactList.length + 1, // Unique ID for the contact
+            FirstName: '',
+            LastName: '',
+            Phone: '',
+            Email: ''
+        };
+        this.contactList = [...this.contactList, newContact];
+    }
+
+    // Remove a contact from the list
+    handleRemoveContact(event) {
+        const contactId = parseInt(event.target.dataset.id);
+        this.contactList = this.contactList.filter(contact => contact.id !== contactId);
     }
 
     // Validate form before proceeding
@@ -78,7 +114,6 @@ export default class MultiStepFormWithNavigation extends LightningElement {
 
     // Proceed to second screen after account info
     handleFirstScreenNext() {
-        // Validate first screen
         if (!this.isInputValid()) {
             return;
         }
@@ -95,7 +130,6 @@ export default class MultiStepFormWithNavigation extends LightningElement {
 
     // Proceed to third (preview) screen after contact info
     handleSecondScreenNext() {
-        // Validate second screen
         if (!this.isInputValid()) {
             return;
         }
@@ -104,6 +138,7 @@ export default class MultiStepFormWithNavigation extends LightningElement {
         this.secondScreen = false;
         this.thirdScreen = true;
     }
+
     handleThirdScreenPrevious() {
         this.firstScreen = false;
         this.secondScreen = true;
@@ -112,15 +147,14 @@ export default class MultiStepFormWithNavigation extends LightningElement {
 
     // Final Submit (create both account and contact records)
     handleFinalSubmit() {
-        // Validate final details before creating the records
         if (!this.isInputValid()) {
             return;
         }
         this.firstScreen = false;
         this.secondScreen = false;
         this.thirdScreen = false;
-        this.fourthscreen=true;
-    
+        this.fourthscreen = true;
+
         // Create the Account first
         createAccount({
             Name: this.accountName,
@@ -130,32 +164,35 @@ export default class MultiStepFormWithNavigation extends LightningElement {
         }).then(result => {
             this.createdAccountId = result; // Get the Account Id after creation
             this.showToast('Success', 'Account Created Successfully', 'success');
-    
-            // Now, create the Contact and link it to the created Account
-            return createContact({
-                FirstName: this.firstName,
-                LastName: this.lastName,
-                Phone: this.contactPhone,
-                Email: this.contactEmail,
-                createdAccountId: this.createdAccountId // Pass the created Account Id
-            });
+
+            // Now, create the Contacts and link them to the created Account
+            const contactsToCreate = this.contactList.map(contact => ({
+                FirstName: contact.FirstName,
+                LastName: contact.LastName,
+                Phone: contact.Phone,
+                Email: contact.Email,
+                AccountId: this.createdAccountId
+            }));
+
+            // Create Contacts in Apex
+            return createContacts({ contacts: contactsToCreate, createdAccountId: this.createdAccountId });
         }).then(() => {
-            // this.resetForm();
-
-                // setTimeout(() => {
-                //     this.fourthscreen = false;
-                //     this.firstScreen = true;
-                // }, 5000);
-                
-            this.showToast('Success', 'Contact Created Successfully', 'success');
-           
-
-        
+            this.showToast('Success', 'Contacts Created Successfully', 'success');
         }).catch(error => {
-            this.showToast('Error', 'Error in creating Account or Contact', 'error');
+            console.error('Error:', error);
+            this.showToast('Error', error.body.message || 'Error in creating Account or Contacts', 'error');
         });
     }
-    
+
+    // Get contact labels dynamically
+    get contactLabels() {
+        return this.contactList.map((contact, index) => {
+            return {
+                ...contact,
+                label: `Contact ${index + 1}`
+            };
+        });
+    }
 
     // Reset the form after successful submission
     resetForm() {
@@ -167,10 +204,17 @@ export default class MultiStepFormWithNavigation extends LightningElement {
         this.lastName = '';
         this.contactPhone = '';
         this.contactEmail = '';
-
-        // this.firstScreen = true;
-        // this.secondScreen = false;
-        // this.thirdScreen = false;
+        this.contactList = [{
+            id: 1, 
+            FirstName: '', 
+            LastName: '', 
+            Phone: '', 
+            Email: ''
+        }];
+        this.firstScreen = true;
+        this.secondScreen = false;
+        this.thirdScreen = false;
+        this.fourthscreen = false;
     }
 
     // Picklist for Rating
