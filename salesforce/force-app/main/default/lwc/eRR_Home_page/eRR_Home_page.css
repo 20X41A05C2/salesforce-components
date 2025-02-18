@@ -1,0 +1,116 @@
+.sprintpark-container {
+    padding: 16px;
+}
+/* Remove the border of the lightning card */
+.sprintpark-container lightning-card {
+    border-color: #2e86c1;
+    border-radius: 8px;
+}
+
+
+.banner-section {
+    display: flex; /* Flexbox layout for side-by-side image and text */
+    align-items: center; /* Align items vertically in the center */
+    gap: 20px; /* Space between image and text */
+    /* background-color: #f2f4f7; */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px; /* Add space below the banner section */
+}
+
+.banner-image-container {
+    flex: 1; /* Allow the image container to take available space */
+    display: flex;
+    justify-content: center;
+}
+
+.banner-image {
+    width: 80%; /* Reduced image size */
+    max-width: 350px; /* Set maximum size for image */
+    height: auto;
+    border-radius: 8px;
+}
+
+.banner-text-container {
+    flex: 1; /* Allow text container to take available space */
+    text-align: left; /* Align text to the left */
+}
+
+.banner-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2a9df4;
+    margin-bottom: 10px;
+}
+
+.banner-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.content-section {
+    text-align: center;
+    margin-top: 50px; /* Add space above the content section */
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2e86c1;
+    margin-bottom: 10px;
+}
+
+.section-description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+ 
+.custom-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 2px solid #00a1e0;
+    border-radius: 25px;
+    color: black;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    outline: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+ 
+.custom-button:hover {
+    background-color: #00a1e0;
+    color: white;
+}
+ 
+.button-icon {
+    width: 20px;
+    height: 20px;
+    background-color: #00a1e0;
+    border-radius: 50%;
+    margin-left: 10px;
+    position: relative;
+}
+ 
+.button-icon::before {
+    content: '→';
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

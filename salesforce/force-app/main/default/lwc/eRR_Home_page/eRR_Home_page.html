@@ -1,0 +1,38 @@
+<template>
+    <lightning-card>
+        <div class="sprintpark-container">
+            <!-- Banner Section -->
+            <div class="banner-section">
+                <!-- Left: Image -->
+                <div class="banner-image-container">
+                    <img src={bannerImage} alt="SPRINTPARK Banner" class="banner-image" />
+                </div>
+
+                <!-- Right: Text -->
+                <div class="banner-text-container">
+                    <h1 class="banner-title">Welcome to SPRINTPARK</h1>
+                    <p class="banner-subtitle">
+                        Simplifying Expense Reimbursement for Everyone!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Content Section -->
+            <div class="content-section">
+                <h2 class="section-title">Submit Your Reimbursement Requests</h2>
+                <p class="section-description">
+                    Our platform makes it easy to submit, track, and manage all your expense
+                    reimbursements in one place. Start now by filling out the form.
+                </p>
+            </div>
+
+            <!-- Button Section -->
+            <div class="center-container">
+                <button class="custom-button" onclick={navigateToLink}>
+                    Click Here 
+                    <span class="button-icon"></span>
+                </button>
+            </div>
+        </div>
+    </lightning-card>
+</template>
